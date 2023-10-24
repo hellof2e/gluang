@@ -1,0 +1,61 @@
+{
+  "name": "gluang",
+  "version": "0.0.1",
+  "description": "Simple shared app state management for Quarkc",
+  "type": "module",
+  "main": "./lib/index.umd.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.umd.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "files": [
+    "lib/*",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "rimraf lib && rollup -c",
+    "changelog": "conventional-changelog -p angular -n './changelog-config.cjs' -i CHANGELOG.md -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellof2e/gluang.git"
+  },
+  "keywords": [
+    "state",
+    "management",
+    "gluang",
+    "quarkc",
+    "quarkd",
+    "quark",
+    "shared",
+    "global",
+    "observer",
+    "observable"
+  ],
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-proposal-decorators": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/node": "^14.18.52",
+    "conventional-changelog-cli": "^3.0.0",
+    "rimraf": "3.0.2",
+    "rollup": "2.77.0",
+    "rollup-plugin-filesize": "^10.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^4.9.5"
+  }
+}
