@@ -46,7 +46,7 @@ export default defineConfig([
         dir,
         entryFileNames: "index.umd.js",
         format: "umd",
-        name: 'Quarkc',
+        name: 'gluang',
       },
     ],
     plugins,
