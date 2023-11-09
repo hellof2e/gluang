@@ -8,11 +8,16 @@
   当组件完成渲染时，stateRecorder.finish() 方法会被调用。这将停止记录 stateVar 变量，并返回记录的变量。然后观察收集到的 stateVar 变量，当其中一个变量发生变化时，组件就会重新渲染。
   所以当你在 Quarkc 组件上使用 connectStore() mixin 时，所有这些都会为你处理好。
 */
-export const connectStore = superclass => {
+type State = {
+  removeObserver: (observer: unknown) => void
+}
+export const connectStore = <T extends new (...args: any[]) => Object>(superclass: T): T => {
 
   class InnerClass extends superclass {
+    _observers: [state: State, observer: unknown][];
+    requestUpdate: () => void;
 
-    constructor() {
+    constructor(...args: any[]) {
         super();
         this._observers = [];
         this.update();
@@ -21,6 +26,7 @@ export const connectStore = superclass => {
     // Your framework need this function to init observe state
     update() {
       stateRecorder.start();
+      // @ts-ignore
       super.update();
       this._initStateObservers();
     }
@@ -82,14 +88,18 @@ export class createGluang {
   }
 
   _initStateVars() {
+    // @ts-ignore
     if (this.constructor.stateVarOptions) {
+       // @ts-ignore
       for (let [key, options] of Object.entries(this.constructor.stateVarOptions)) {
           this._initStateVar(key, options);
       }
     }
 
+    // @ts-ignore
     if (this.constructor.stateVars) {
         // State obj's key
+        // @ts-ignore
         for (let [key, value] of Object.entries(this.constructor.stateVars)) {
             this._initStateVar(key, {});
             this[key] = value;
