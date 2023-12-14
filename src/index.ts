@@ -11,11 +11,13 @@
 type State = {
   removeObserver: (observer: unknown) => void
 }
-export const connectStore = <T extends new (...args: any[]) => Object>(superclass: T): T => {
+interface Base {
+  requestUpdate: () => void
+}
+export const connectStore = <T extends new (...args: any[]) => unknown & Base>(superclass: T): T => {
 
   class InnerClass extends superclass {
     _observers: [state: State, observer: unknown][];
-    requestUpdate: () => void;
 
     constructor(...args: any[]) {
         super();
