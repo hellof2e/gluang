@@ -18,11 +18,17 @@ export const connectStore = <T extends new (...args: any[]) => unknown & Base>(s
 
   class InnerClass extends superclass {
     _observers: [state: State, observer: unknown][];
+    performUpdate: any;
 
     constructor(...args: any[]) {
         super();
         this._observers = [];
-        this.update();
+
+
+        // 区分 lit（lit 中存在 performUpdate）
+        if(!this.performUpdate) {
+          this.update(); // quarkc 中先去执行
+        }
     }
 
     // Your framework need this function to init observe state
