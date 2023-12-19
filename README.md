@@ -3,6 +3,8 @@
 gluang （音同：gluon /ˈɡluː ɒn/ 格鲁昂）[物理学] 胶子
 用于链接夸克形成强子，构成基本粒子。
 
+> Lit （Lit element）同样适用
+
 ### Simple shared app state management for Quarkc.
 
 Gluang automatically re-renders your Quarkc components, when a shared app
