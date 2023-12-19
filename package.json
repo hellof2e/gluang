@@ -1,7 +1,7 @@
 {
   "name": "gluang",
   "version": "0.0.5",
-  "description": "Simple shared app state management for Quarkc",
+  "description": "Simple shared app state management for Quarkc or litelement",
   "type": "module",
   "main": "./lib/index.umd.js",
   "module": "./lib/index.js",
