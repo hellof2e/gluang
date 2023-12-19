@@ -36,7 +36,9 @@
     "shared",
     "global",
     "observer",
-    "observable"
+    "observable",
+    "lit",
+    "litelement"
   ],
   "license": "LGPL-3.0-or-later",
   "devDependencies": {
