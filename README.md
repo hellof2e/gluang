@@ -31,6 +31,8 @@ whenever a `stateVar` they use changes.
 ### 1. Create a `Gluang` object:
 
 ```javascript
+// my-store.js
+
 import { createGluang, stateVar } from 'gluang';
 
 class MyState extends createGluang {
@@ -50,6 +52,8 @@ By using the `connectStore()` mixin on your `Quarkc component` class and then ju
 using the `stateVar` variables in your render method:
 
 ```javascript
+// my-components
+
 import { QuarkElement, customElement } from "quarkc";
 import { connectStore } from 'gluang';
 import { myState } from './my-state.js';
